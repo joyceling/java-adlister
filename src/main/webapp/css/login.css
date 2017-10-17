@@ -1,0 +1,17 @@
+.password-input, .email, .login {
+    max-width: 400px;
+    min-width: 400px;
+}
+
+
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+}

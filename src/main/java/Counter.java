@@ -1,3 +1,4 @@
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -7,21 +8,18 @@ import java.io.PrintWriter;
 
 @WebServlet (name="Counter", urlPatterns = "/counter")
 public class Counter extends HttpServlet {
-    int counter = 0;
+    private int counter = 0;
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-
-        String resetCounter = req.getParameter("reset");
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
-
-        if (resetCounter == "true") {
+        if (req.getParameter("reset") != null) {
             counter = 0;
-        } else {
-            out.println("Page counter: " + counter);
-            counter++;
         }
+        out.println("Page counter: " + counter);
+
+            counter++;
 
 
     }
