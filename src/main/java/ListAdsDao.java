@@ -1,5 +1,7 @@
+import javax.servlet.annotation.WebServlet;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class ListAdsDao implements Ads {
     private List<Ad> ads;
@@ -39,4 +41,5 @@ public class ListAdsDao implements Ads {
         ));
         return ads;
     }
+
 }
