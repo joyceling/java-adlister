@@ -29,7 +29,11 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("user", username);
             request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
         } else {
+            // slower
             response.sendRedirect("/login");
+
+            // faster (but is dependent on file name)
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }
